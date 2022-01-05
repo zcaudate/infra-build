@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install -yqq wget git make gcc unzip build-essential \
         libreadline-dev zlib1g-dev libssl-dev libpcre3 libpcre3-dev \
-        libhiredis-dev libsqlite3-dev
+        libhiredis-dev libsqlite3-dev libjemalloc-dev
 WORKDIR /build
 
 # BUILD OPENRESTY                                                                                                                                                                                 

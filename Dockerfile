@@ -2,7 +2,7 @@ FROM ubuntu:20.04 as build
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -yqq wget git make gcc libpcre3 libpcre3-dev libhiredis-dev
+RUN apt-get install -yqq wget git make gcc unzip libpcre3 libpcre3-dev libhiredis-dev
 RUN apt-get install -yqq build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev libxml2-utils xsltproc
 WORKDIR /build
 

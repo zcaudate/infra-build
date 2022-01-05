@@ -2,7 +2,9 @@ FROM ubuntu:20.04 as build
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -yqq wget git make gcc unzip build-essential libssl-dev libpcre3 libpcre3-dev libhiredis-dev libsqlite3-dev
+RUN apt-get install -yqq wget git make gcc unzip build-essential \
+        libreadline-dev zlib1g-dev libssl-dev libpcre3 libpcre3-dev \
+        libhiredis-dev libsqlite3-dev
 WORKDIR /build
 
 # BUILD OPENRESTY                                                                                                                                                                                 

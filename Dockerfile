@@ -2,9 +2,7 @@ FROM ubuntu:20.04 as build
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -yqq wget git make gcc unzip build-essential \
-        libreadline-dev zlib1g-dev libssl-dev libpcre3 libpcre3-dev \
-        libhiredis-dev libsqlite3-dev libjemalloc-dev
+RUN apt-get install -yqq wget git make gcc unzip libpcre3 libpcre3-dev libhiredis-dev libsqlite3-dev
 WORKDIR /build
 
 # BUILD OPENRESTY                                                                                                                                                                                 
@@ -31,7 +29,7 @@ RUN /opt/openresty/luajit/bin/luarocks install lsqlite3
 
 # BUILD REDIS                                                                                                                                                                                     
 RUN wget https://github.com/zcaudate/redis-luajit/archive/refs/tags/v5.0-luajit.tar.gz && tar -xf v5.0-luajit.tar.gz
-RUN wget https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz && tar -xf LuaJIT-2.1.0-beta3.tar.gz
-RUN mv LuaJIT-2.1.0-beta3 redis-luajit-5.0-luajit/deps/LuaJIT
+RUN wget https://github.com/zcaudate/LuaJIT/archive/refs/tags/2.1-redis.tar.gz && tar -xf 2.1-redis.tar.gz
+RUN rm -R redis-luajit-5.0-luajit/deps/LuaJIT
+RUN mv LuaJIT-2.1-redis redis-luajit-5.0-luajit/deps/LuaJIT
 RUN cd redis-luajit-5.0-luajit && make && make install
-    

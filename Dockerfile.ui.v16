@@ -1,0 +1,11 @@
+FROM node:16
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /build
+
+RUN npm -g install pnpm yarn nesh \
+        blessed react react-blessed chalk@4 \
+        node-fetch@2 node-localstorage window web-worker \
+        ws eventsource broadcast-channel \
+        pg redis sql.js \
+        uuid qs dateformat \
+        uuid valtio

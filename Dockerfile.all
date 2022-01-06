@@ -32,7 +32,8 @@ RUN /opt/openresty/luajit/bin/luarocks install luasocket
 RUN /opt/openresty/luajit/bin/luarocks install lustache
 RUN /opt/openresty/luajit/bin/luarocks install lua-cjson
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-openssl
-RUN /opt/openresty/luajit/bin/luarocks install lua-resty-mail                                                                                  RUN /opt/openresty/luajit/bin/luarocks install lua-resty-http
+RUN /opt/openresty/luajit/bin/luarocks install lua-resty-mail
+RUN /opt/openresty/luajit/bin/luarocks install lua-resty-http
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-uuid
 RUN /opt/openresty/luajit/bin/luarocks install lsqlite3
 RUN /opt/openresty/luajit/bin/luarocks install pgmoon
@@ -51,5 +52,3 @@ RUN /usr/local/bin/luarocks install luaposix
 RUN /usr/local/bin/luarocks install luasocket
 
 ENV PATH="/opt/openresty/bin:/opt/openresty/luajit/bin:/opt/redis/bin:${PATH}"
-
-

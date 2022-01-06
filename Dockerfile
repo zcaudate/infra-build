@@ -36,6 +36,10 @@ RUN wget https://github.com/zcaudate/LuaJIT/archive/refs/tags/2.1-redis.tar.gz &
 RUN rm -R redis-luajit-6.2-luajit/deps/LuaJIT
 RUN mv LuaJIT-2.1-redis redis-luajit-6.2-luajit/deps/LuaJIT
 RUN cd redis-luajit-6.2-luajit && make && make PREFIX=/opt/redis install
+RUN cd redis-luajit-6.2-luajit/deps/LuaJIT && make install
+RUN cd luarocks-3.8.0 && ./configure --prefix=/usr/local --with-lua=/usr/local/lib \
+        --lua-suffix=jit --with-lua-include=/usr/local/include/luajit-2.1 \
+        && make && make install
 
 ENV PATH="/opt/openresty/bin:/opt/openresty/luajit/bin:/opt/redis/bin:${PATH}"
 

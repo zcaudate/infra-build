@@ -34,4 +34,7 @@ RUN wget https://github.com/zcaudate/redis-luajit/archive/refs/tags/v5.0-luajit.
 RUN wget https://github.com/zcaudate/LuaJIT/archive/refs/tags/2.1-redis.tar.gz && tar -xf 2.1-redis.tar.gz
 RUN rm -R redis-luajit-5.0-luajit/deps/LuaJIT
 RUN mv LuaJIT-2.1-redis redis-luajit-5.0-luajit/deps/LuaJIT
-RUN cd redis-luajit-5.0-luajit && make && make install
+RUN cd redis-luajit-5.0-luajit && make && make PREFIX=/opt/redis install
+
+ENV PATH="/opt/openresty/bin:/opt/openresty/luajit/bin:/opt/redis/bin:${PATH}"
+

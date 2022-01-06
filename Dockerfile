@@ -33,7 +33,7 @@ RUN /opt/openresty/luajit/bin/luarocks install pgmoon
 # BUILD REDIS                                                                                                                                                                                     
 RUN wget https://github.com/zcaudate/redis-luajit/archive/refs/tags/v6.2-luajit.tar.gz && tar -xf v6.2-luajit.tar.gz
 RUN wget https://github.com/zcaudate/LuaJIT/archive/refs/tags/2.1-redis.tar.gz && tar -xf 2.1-redis.tar.gz
-RUN rm -R redis-luajit-5.0-luajit/deps/LuaJIT
+RUN rm -R redis-luajit-6.2-luajit/deps/LuaJIT
 RUN mv LuaJIT-2.1-redis redis-luajit-6.2-luajit/deps/LuaJIT
 RUN cd redis-luajit-6.2-luajit && make && make PREFIX=/opt/redis install
 

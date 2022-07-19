@@ -11,8 +11,9 @@ RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make && make install
 
 FROM postgres:13
 WORKDIR /build
-
-COPY --from=builder /build ./
+RUN apt-get -y install make
+COPY --from=builder /build/* ./
+RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make install
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 5432

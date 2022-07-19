@@ -25,6 +25,8 @@ jobs:
             image: ghcr.io/zcaudate/infra-net-apiserver
           - dockerfile: ./infra/Dockerfile_redis
             image: ghcr.io/zcaudate/infra-redis
+          - dockerfile: ./infra/Dockerfile_redis_v5
+            image: ghcr.io/zcaudate/infra-redis-5
     permissions:
       contents: read
       packages: write

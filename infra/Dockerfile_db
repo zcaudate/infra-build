@@ -8,7 +8,3 @@ RUN apt-get -y install wget build-essential make gcc python3 postgresql-plpython
 
 RUN wget https://github.com/zcaudate/redis_wrapper/archive/refs/tags/${REDIS_WRAPPER_VERSION}.tar.gz && tar -xf ${REDIS_WRAPPER_VERSION}.tar.gz
 RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make && make install
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
-EXPOSE 5432
-CMD ["postgres"]

@@ -31,3 +31,6 @@ RUN /opt/openresty/luajit/bin/luarocks install lua-resty-uuid
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-acme
 RUN /opt/openresty/luajit/bin/luarocks install lsqlite3
 RUN /opt/openresty/luajit/bin/luarocks install pgmoon
+
+EXPOSE 80
+CMD ["nginx"]

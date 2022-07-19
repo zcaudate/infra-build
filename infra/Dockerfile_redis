@@ -17,3 +17,5 @@ RUN cd redis-luajit-${REDIS_VERSION}-luajit && make && make PREFIX=/opt/redis in
 RUN cd redis-luajit-${REDIS_VERSION}-luajit/deps/LuaJIT && make install
 RUN mv /usr/local/bin/luajit-2.1.0-beta3 /usr/local/bin/luajit
 
+EXPOSE 6379
+CMD ["redis-server"]

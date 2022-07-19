@@ -1,4 +1,4 @@
-FROM postgres:13 AS builder
+FROM postgres:13
 ENV REDIS_WRAPPER_VERSION=0.1.0
 WORKDIR /build
 
@@ -8,12 +8,6 @@ RUN apt-get -y install wget build-essential make gcc python3 postgresql-plpython
 
 RUN wget https://github.com/zcaudate/redis_wrapper/archive/refs/tags/${REDIS_WRAPPER_VERSION}.tar.gz && tar -xf ${REDIS_WRAPPER_VERSION}.tar.gz
 RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make && make install
-
-FROM postgres:13
-WORKDIR /build
-RUN apt-get -y install make
-COPY --from=builder /build/* ./
-RUN cd redis_wrapper-${REDIS_WRAPPER_VERSION} && make install
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 5432

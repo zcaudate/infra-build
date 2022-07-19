@@ -1,4 +1,4 @@
-FROM postgres:13
+FROM postgres:13 as builder
 ENV REDIS_WRAPPER_VERSION=0.1.0
 WORKDIR /build
 

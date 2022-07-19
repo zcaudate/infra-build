@@ -1,4 +1,4 @@
-name: Build & publish drill4net images
+name: Build & publish infra containers
 on:
   release:
     types: [published]
@@ -15,9 +15,9 @@ jobs:
       matrix:
         include:
           - dockerfile: ./infra/Dockerfile_db
-            image: ghcr.io/statstrade/infra_db
+            image: ghcr.io/zcaudate/infra_db
           - dockerfile: ./infra/Dockerfile_net_apiserver
-            image: ghcr.io/statstrade/infra_net_apiserver
+            image: ghcr.io/zcaudate/infra_net_apiserver
     permissions:
       contents: read
       packages: write

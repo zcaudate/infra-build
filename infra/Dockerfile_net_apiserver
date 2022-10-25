@@ -26,6 +26,7 @@ RUN cd luarocks-${LUAROCKS_VERSION} && ./configure --prefix=/opt/openresty/luaji
 
 RUN /opt/openresty/luajit/bin/luarocks install lustache
 RUN /opt/openresty/luajit/bin/luarocks install lua-cjson
+RUN /opt/openresty/luajit/bin/luarocks install lua-crypt
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-openssl
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-mail                                                                                                                                     
 RUN /opt/openresty/luajit/bin/luarocks install lua-resty-http

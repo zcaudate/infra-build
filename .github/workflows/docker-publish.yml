@@ -17,8 +17,8 @@ jobs:
         include:
           - dockerfile: ./infra/Dockerfile_db
             image: ghcr.io/zcaudate/infra-db
-          - dockerfile: ./infra/Dockerfile_net_apiserver
-            image: ghcr.io/zcaudate/infra-net-apiserver
+          - dockerfile: ./infra/Dockerfile_net
+            image: ghcr.io/zcaudate/infra-net
           - dockerfile: ./infra/Dockerfile_redis
             image: ghcr.io/zcaudate/infra-redis
           - dockerfile: ./infra/Dockerfile_ganache

@@ -7,9 +7,10 @@ WORKDIR /build
 ENV PATH="/opt/openresty/bin:/opt/openresty/luajit/bin:${PATH}"
 
 RUN apt-get update \
-  && apt-get install -yqq wget git make gcc unzip build-essential \
+  && apt-get install -yqq curl wget git make gcc unzip build-essential \
         libreadline-dev zlib1g-dev libssl-dev libpcre3 libpcre3-dev \
-        libhiredis-dev libsqlite3-dev libjemalloc-dev gettext-base \
+        libhiredis-dev libsqlite3-dev libjemalloc-dev gettext-base \ 
+        iputils-ping \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 

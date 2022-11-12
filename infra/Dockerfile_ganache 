@@ -1,5 +1,5 @@
 FROM node:16
-WORKDIR /SERVICE
+WORKDIR /app
 RUN npm -g install ganache
 EXPOSE 8545
 CMD ["ganache"]

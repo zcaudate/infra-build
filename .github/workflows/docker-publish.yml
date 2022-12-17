@@ -9,24 +9,24 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-push-image:
+  img:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         include:
           - dockerfile: ./infra/Dockerfile_db
-            image: ghcr.io/zcaudate/infra-db
+            image: infra-db
           - dockerfile: ./infra/Dockerfile_expo
-            image: ghcr.io/zcaudate/infra-expo
+            image: infra-expo
           - dockerfile: ./infra/Dockerfile_net
-            image: ghcr.io/zcaudate/infra-net
+            image: infra-net
           - dockerfile: ./infra/Dockerfile_redis
-            image: ghcr.io/zcaudate/infra-redis
+            image: infra-redis
           - dockerfile: ./infra/Dockerfile_ganache
-            image: ghcr.io/zcaudate/infra-ganache
+            image: infra-ganache
           - dockerfile: ./infra/Dockerfile_redis_v5
-            image: ghcr.io/zcaudate/infra-redis-5
+            image: infra-redis-5
     permissions:
       contents: read
       packages: write
@@ -52,7 +52,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ matrix.image }}
+          images: ghcr.io/zcaudate/${{ matrix.image }}
 
       - name: Build and push Docker infra images
         uses: docker/build-push-action@v3

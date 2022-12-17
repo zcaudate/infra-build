@@ -15,17 +15,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./infra/Dockerfile_db
+          - dockerfile: db
             image: infra-db
-          - dockerfile: ./infra/Dockerfile_expo
+          - dockerfile: expo
             image: infra-expo
-          - dockerfile: ./infra/Dockerfile_net
+          - dockerfile: net
             image: infra-net
-          - dockerfile: ./infra/Dockerfile_redis
+          - dockerfile: redis
             image: infra-redis
-          - dockerfile: ./infra/Dockerfile_ganache
+          - dockerfile: ganache
             image: infra-ganache
-          - dockerfile: ./infra/Dockerfile_redis_v5
+          - dockerfile: redis_v5
             image: infra-redis-5
     permissions:
       contents: read
@@ -58,7 +58,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ${{ matrix.dockerfile }}
+          file: ./infra/Dockerfile_${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

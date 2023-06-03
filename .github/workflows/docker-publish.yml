@@ -25,6 +25,8 @@ jobs:
             image: infra-redis
           - dockerfile: ganache
             image: infra-ganache
+          - dockerfile: ganache_test
+            image: infra-ganache-test
           - dockerfile: redis_v5
             image: infra-redis-5
     permissions:
